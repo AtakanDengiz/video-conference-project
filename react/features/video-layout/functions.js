@@ -82,6 +82,10 @@ export function shouldDisplayTileView(state: Object = {}) {
         return false;
     }
 
+    if (interfaceConfig.DISABLE_TILE_VIEW) {
+        return false;
+    }
+
     const { tileViewEnabled } = state['features/video-layout'];
 
     if (tileViewEnabled !== undefined) {

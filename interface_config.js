@@ -73,6 +73,13 @@ var interfaceConfig = {
     DISABLE_RINGING: false,
 
     /**
+     * If true, tile view will not be enabled automatically when the participants count threshold is reached.
+     *
+     * @type {boolean}
+     */
+    DISABLE_TILE_VIEW: false,
+
+    /**
      * Whether the speech to text transcription subtitles panel is disabled.
      * If {@code undefined}, defaults to {@code false}.
      *
