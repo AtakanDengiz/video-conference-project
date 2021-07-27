@@ -277,10 +277,10 @@ class Filmstrip extends PureComponent <Props> {
      * @param {Object} data - Information about the rendered items.
      * @returns {void}
      */
-    _onListItemsRendered({ overscanStartIndex, overscanStopIndex }) {
+    _onListItemsRendered({ visibleStartIndex, visibleStopIndex }) {
         const { dispatch } = this.props;
 
-        dispatch(setVisibleRemoteParticipants(overscanStartIndex, overscanStopIndex));
+        dispatch(setVisibleRemoteParticipants(visibleStartIndex, visibleStopIndex));
     }
 
     _onGridItemsRendered: Object => void;
@@ -292,14 +292,14 @@ class Filmstrip extends PureComponent <Props> {
      * @returns {void}
      */
     _onGridItemsRendered({
-        overscanColumnStartIndex,
-        overscanColumnStopIndex,
-        overscanRowStartIndex,
-        overscanRowStopIndex
+        visibleColumnStartIndex,
+        visibleColumnStopIndex,
+        visibleRowStartIndex,
+        visibleRowStopIndex
     }) {
         const { _columns, dispatch } = this.props;
-        const startIndex = (overscanRowStartIndex * _columns) + overscanColumnStartIndex;
-        const endIndex = (overscanRowStopIndex * _columns) + overscanColumnStopIndex;
+        const startIndex = (visibleRowStartIndex * _columns) + visibleColumnStartIndex;
+        const endIndex = (visibleRowStopIndex * _columns) + visibleColumnStopIndex;
 
         dispatch(setVisibleRemoteParticipants(startIndex, endIndex));
     }
@@ -338,6 +338,7 @@ class Filmstrip extends PureComponent <Props> {
                     initialScrollTop = { 0 }
                     itemKey = { this._gridItemKey }
                     onItemsRendered = { this._onGridItemsRendered }
+                    overscanRowCount = { 1 }
                     rowCount = { _rows }
                     rowHeight = { _thumbnailHeight + TILE_VERTICAL_MARGIN }
                     width = { _filmstripWidth }>
@@ -356,6 +357,7 @@ class Filmstrip extends PureComponent <Props> {
             itemKey: this._listItemKey,
             itemSize: 0,
             onItemsRendered: this._onListItemsRendered,
+            overscanCount: 1,
             width: _filmstripWidth,
             style: {
                 willChange: 'auto'
