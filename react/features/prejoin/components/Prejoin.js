@@ -4,6 +4,7 @@ import InlineDialog from '@atlaskit/inline-dialog';
 import React, { Component } from 'react';
 
 import { getRoomName } from '../../base/conference';
+import { isNameReadOnly } from '../../base/config';
 import { translate } from '../../base/i18n';
 import { Icon, IconArrowDown, IconArrowUp, IconPhone, IconVolumeOff } from '../../base/icons';
 import { isVideoMutedByUser } from '../../base/media';
@@ -20,8 +21,7 @@ import {
     isDeviceStatusVisible,
     isDisplayNameRequired,
     isJoinByPhoneButtonVisible,
-    isJoinByPhoneDialogVisible,
-    isPrejoinNameReadOnly
+    isJoinByPhoneDialogVisible
 } from '../functions';
 
 import JoinByPhoneDialog from './dialogs/JoinByPhoneDialog';
@@ -401,7 +401,7 @@ function mapStateToProps(state): Object {
         showDialog: isJoinByPhoneDialogVisible(state),
         showErrorOnJoin,
         hasJoinByPhoneButton: isJoinByPhoneButtonVisible(state),
-        readOnlyName: isPrejoinNameReadOnly(state),
+        readOnlyName: isNameReadOnly(state),
         showCameraPreview: !isVideoMutedByUser(state),
         videoTrack: getLocalJitsiVideoTrack(state)
     };
