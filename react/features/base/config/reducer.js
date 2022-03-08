@@ -26,7 +26,11 @@ declare var interfaceConfig: Object;
  *
  * @type {Object}
  */
-const INITIAL_NON_RN_STATE = {
+ const INITIAL_NON_RN_STATE = {
+    gif: {
+        enabled: true,
+        sdkKey: 'A4C69dn3EPwkbAZnAujzA9B29ocUKJeC'
+    }
 };
 
 /**

@@ -23,6 +23,31 @@ const titleBarSafeView = {
  */
 export default {
 
+    carmodeTitleView: {
+        width: 152,
+        height: 28,
+        backgroundColor: BaseTheme.palette.ui02,
+        borderRadius: BaseTheme.shape.borderRadius,
+        alignSelf: 'center'
+    },
+    carmodeTitle: {
+        margin: 'auto',
+        textAlign: 'center',
+        paddingVertical: 4,
+        paddingHorizontal: 16,
+        color: BaseTheme.palette.text02,
+
+    },
+
+    /**
+     * {@code Conference} Style.
+     */
+    conference: fixAndroidViewClipping({
+        alignSelf: 'stretch',
+        backgroundColor: BaseTheme.palette.uiBackground,
+        flex: 1
+    }),
+
     /**
      * {@code Conference} Style.
      */

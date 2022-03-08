@@ -11,6 +11,7 @@ export const screen = {
         privacy: 'Privacy',
         help: 'Help'
     },
+    car: 'Car Mode',
     dialInSummary: 'Dial-In Info',
     conference: {
         root: 'Conference root',
@@ -23,6 +24,7 @@ export const screen = {
                 polls: 'Polls'
             }
         },
+        container: 'Conference container',
         security: 'Security Options',
         recording: 'Recording',
         liveStream: 'Live stream',

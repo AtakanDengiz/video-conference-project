@@ -204,7 +204,7 @@ function _updateReceiverVideoConstraints({ getState }) {
     const { visibleRemoteParticipants } = state['features/filmstrip'];
     const tracks = state['features/base/tracks'];
     const sourceNameSignaling = getSourceNameSignalingFeatureFlag(state);
-    const localParticipantId = getLocalParticipant(state).id;
+    const localParticipantId = getLocalParticipant(state)?.id;
 
     let receiverConstraints;
 

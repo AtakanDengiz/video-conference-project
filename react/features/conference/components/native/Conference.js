@@ -166,6 +166,7 @@ class Conference extends AbstractConference<Props, State> {
      * @returns {void}
      */
     componentDidMount() {
+        console.log('MOUNTEDD');
         BackButtonRegistry.addListener(this._onHardwareBackPress);
     }
 
@@ -195,6 +196,8 @@ class Conference extends AbstractConference<Props, State> {
      * @returns {void}
      */
     componentWillUnmount() {
+        console.log('UNMOUNTED');
+
         // Tear handling any hardware button presses for back navigation down.
         BackButtonRegistry.removeListener(this._onHardwareBackPress);
 
@@ -208,6 +211,13 @@ class Conference extends AbstractConference<Props, State> {
      * @returns {ReactElement}
      */
     render() {
+        console.warn('RAMPARAM:', this.props.route.params);
+        if (this.props.route.params?.conferenceBlurred) {
+            console.log('WORKS');
+
+            return null;
+        }
+
         const { _fullscreenEnabled } = this.props;
 
         return (
